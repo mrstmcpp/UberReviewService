@@ -16,29 +16,30 @@ import java.util.Date;
 @Builder //implements builder design pattern
 @AllArgsConstructor //create constructor with all arguments
 @NoArgsConstructor
-@EntityListeners(AuditingEntityListener.class) //is a JPA annotation that lets you hook into the lifecycle of an entity—things like when it's created, updated, or deleted—by registering a listener class to respond to those events.
+//@EntityListeners(AuditingEntityListener.class) //is a JPA annotation that lets you hook into the lifecycle of an entity—things like when it's created, updated, or deleted—by registering a listener class to respond to those events.
 //also need to add @EnableJpaAuditing in entry point of application...
 //alternative is to pass date in builder class.
 //@Table(name = "ReviewData") //we can give custom name to our table like this.
-public class Review {
+@Table(name = "bookingreview")
+@Inheritance(strategy = InheritanceType.JOINED)
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+/*
+table per class creates tables for each class, such as different table
+for passagner review , driver review as well as bookingreview which is this file
+**and alll tables contains id , content , rating , createdat , updatedat..
+which shows data redundancy.
+ */
+
+/*
+Joined -> this will also create 3 tables for us....
+bt all three tables will have different content except primary id of the content
+no data redundancy...
+ */
+public class Review extends BaseModel {
 
     @Column(nullable = false)
     private String content;
 
     @Column(nullable = false)
     private Double rating;
-
-    @Column(name = "createdAt" ,nullable = false)
-    @Temporal(TemporalType.TIMESTAMP) // format
-    @CreatedDate // get when field was created
-    private Date createdAt;
-
-    @Column(name = "updatedAt" ,nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate //get when field is modified
-    private Date updatedAt;
-
 }
