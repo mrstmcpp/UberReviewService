@@ -20,7 +20,7 @@ import java.util.Date;
 //also need to add @EnableJpaAuditing in entry point of application...
 //alternative is to pass date in builder class.
 //@Table(name = "ReviewData") //we can give custom name to our table like this.
-@Table(name = "bookingreview")
+@Table(name = "booking_review")
 @Inheritance(strategy = InheritanceType.JOINED)
 
 /*

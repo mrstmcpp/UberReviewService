@@ -13,7 +13,7 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseModel { // abstract so that object creation is not possible
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id; //changed to protected from private so that all
     //the classes which extends only they can access it.
 
