@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,5 +34,6 @@ public class Driver extends BaseModel {
      */
     @OneToMany(mappedBy = "driver" , fetch = FetchType.LAZY) //EAGER -> immediately loads the all related entities
     //directly lazy loading won't work. We need to set it up in application.properties
+    @Fetch(FetchMode.SUBSELECT)
     private List<Booking> bookings = new ArrayList<>();
 }

@@ -1,0 +1,25 @@
+
+insert into booking (created_at, updated_at, booking_status, end_time, start_time, total_distance, driver_id, passenger_id)
+VALUES (now() , now() , 'ARRIVED' , now() , now(), 4, 3 , 1),
+(now() , now() , 'ARRIVED' , now() , now(), 5, 1 , 2),
+(now() , now() , 'ARRIVED' , now() , now(), 2, 2 , 3),
+       (now() , now() , 'ARRIVED' , now() , now(), 3, 1 , 2);
+
+
+
+insert into driver (created_at, updated_at, full_name, license_number) VALUES (now() , now() , 'Ashish' , 'ABC'),
+                                                                              (now() , now() , 'Sonu' , 'BCA'),
+                                                                              (now() , now() , 'Chhotu' , 'GHI'),
+                                                                              (now() , now() , 'Shashank' , 'XYz');
+
+insert into driver (created_at, updated_at, full_name, license_number) VALUES (NOW(), NOW(), 'Ramesh', 'RJ5678'),
+                                                                              (NOW(), NOW(), 'Suresh', 'MH4321'),
+                                                                              (NOW(), NOW(), 'Anita', 'KA9988'),
+                                                                              (NOW(), NOW(), 'Priya', 'TN1122'),
+                                                                              (NOW(), NOW(), 'Ajay', 'GJ7788'),
+                                                                              (NOW(), NOW(), 'Kavita', 'HR3344');
+
+
+insert into passenger (created_at, updated_at, passanger_name) VALUES (now() , now() , 'Kush'),
+                                                                      (now() , now() , 'Priyanshu'),
+                                                                      (now() , now() , 'Prakhar');
